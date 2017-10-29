@@ -1,0 +1,1 @@
+export { Rule as NoRedundantJsdocAnnotationsRule } from './noRedundantJsdocAnnotationsRule'
