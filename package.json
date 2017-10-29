@@ -1,0 +1,35 @@
+{
+  "name": "tslint-no-redundant-jsdoc-annotations",
+  "version": "1.0.0",
+  "description": "Tslint rule that disallows declaring JSDoc @tags that can be expressed by the TypeScript surface syntax.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilio-martinez/tslint-no-redundant-jsdoc-annotations.git"
+  },
+  "keywords": [
+    "linting",
+    "tslint",
+    "typescript",
+    "jsdoc"
+  ],
+  "author": "Emilio Martinez-Cordero <e.marticor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emilio-martinez/tslint-no-redundant-jsdoc-annotations/issues"
+  },
+  "homepage": "https://github.com/emilio-martinez/tslint-no-redundant-jsdoc-annotations#readme",
+  "devDependencies": {
+    "@types/node": "^6.0.90",
+    "tslint": "^5.0.0",
+    "tsutils": "^2.12.1",
+    "typescript": "^2.5.3"
+  },
+  "peerDependencies": {
+    "tslint": "^5.0.0",
+    "tsutils": "^2.12.1"
+  }
+}
