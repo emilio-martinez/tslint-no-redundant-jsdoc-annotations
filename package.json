@@ -4,6 +4,11 @@
   "description": "Tslint rule that disallows declaring JSDoc @tags that can be expressed by the TypeScript surface syntax.",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf dist",
+    "build": "rimraf dist && node_modules/.bin/tsc",
+    "release": "npm run build && npm run release:prep",
+    "release:dry": "standard-version --dry-run && npm run release && npm pack dist/",
+    "release:prep": "cp README.md dist && cat package.json | node tools/prepare-package.js > dist/package.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +29,8 @@
   "homepage": "https://github.com/emilio-martinez/tslint-no-redundant-jsdoc-annotations#readme",
   "devDependencies": {
     "@types/node": "^6.0.90",
+    "rimraf": "^2.6.2",
+    "standard-version": "^4.2.0",
     "tslint": "^5.0.0",
     "tsutils": "^2.12.1",
     "typescript": "^2.5.3"
