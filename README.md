@@ -1,2 +1,9 @@
-# tslint-no-redundant-jsdoc-annotations
-Tslint rule that disallows declaring JSDoc @tags that can be expressed by the TypeScript surface syntax.
+# Tslint Rule: No redundant JSDoc annotations
+
+**`no-redundant-jsdoc-annotations`**
+
+Disallows declaring JSDoc @tags or @annotations that may better expressed and/or better suited via Typescript's syntax. Typescript's syntax, of course, is strongly preferred given the type-related benefits that the language provides via hinting and at compilation time. Ultimately, this rule disallows annotations that can be extracted via Typescript's type engine.
+
+## Rationale
+
+JSDoc provides the opportunity of expressing type definitions in Javascript comments via @tags or @annotations. However, most of those have a comparable and/or inherent way of being expressed by Typescript's syntax, therefore becoming redundant. Additionally, avoiding this type of redundancies may avoid conflicts with tooling that may add automatic JSDoc type annotations at compile time.
