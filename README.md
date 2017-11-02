@@ -3,6 +3,7 @@
 [![npm version][npm]][npm-url]
 [![Build Status][tests]][tests-url]
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![Greenkeeper badge](https://badges.greenkeeper.io/emilio-martinez/tslint-no-redundant-jsdoc-annotations.svg)](https://greenkeeper.io/)
 
 Disallows declaring JSDoc @tags or @annotations that may better expressed and/or better suited via Typescript's syntax. Typescript's syntax, of course, is strongly preferred given the type-related benefits that the language provides via hinting and at compilation time. Ultimately, this rule disallows annotations that can be extracted via Typescript's type engine.
 
