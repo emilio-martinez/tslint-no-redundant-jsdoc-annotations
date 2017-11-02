@@ -10,11 +10,13 @@ const JSDOC_TAGS_BLACKLIST = new Set([
   'access',
   'augments',
   'class',
+  'const',
   'constant',
   'constructor',
   'constructs',
   'default',
   'enum',
+  'export',
   'exports',
   'extends',
   'function',
@@ -49,7 +51,7 @@ const JSDOC_TAGS_BLACKLIST = new Set([
  * A list of JSDoc @tags that may include a {type} declaration.
  * These will only be banned when that type is passed.
  */
-const JSDOC_TAGS_WITH_TYPES = new Set(['const', 'export', 'param', 'return', 'returns']);
+const JSDOC_TAGS_WITH_TYPES = new Set(['param', 'return', 'returns']);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
