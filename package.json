@@ -3,15 +3,25 @@
   "version": "1.0.1",
   "description": "Tslint rule that disallows declaring JSDoc @tags that can be expressed by the TypeScript surface syntax.",
   "main": "index.js",
+  "scripts-info": {
+    "clean": "Cleans the output directory.",
+    "build": "Compiles and outputs tslint rules.",
+    "release": "Builds and preps files for release. Will bump version and output CHANGELOG, but will not commit changes.",
+    "release:dry": "Release dry-run. Will emulate CHANGELOG and tag changes, and create a tarball.",
+    "release:prep": "Copies and cleans-up relevant files for publishing. Note that this `package.json` is set to `private` to avoid accidental release. On the release prep, the `package.json` will be cleaned up for public release.",
+    "pretest": "Runs a build step before testing.",
+    "test": "Executes a single test run."
+  },
   "scripts": {
     "clean": "rimraf dist",
     "build": "rimraf dist && node_modules/.bin/tsc",
-    "release": "npm run build && npm run release:prep",
-    "release:dry": "standard-version --dry-run && npm run release && npm pack dist/",
+    "release": "standard-version && npm run build && npm run release:prep",
+    "release:dry": "standard-version --dry-run && npm run build && npm run release:prep && npm pack dist/",
     "release:prep": "cp README.md dist && cat package.json | node tools/prepare-package.js > dist/package.json",
     "pretest": "npm run build",
     "test": "node_modules/.bin/tslint --rules-dir dist/ --test test/**/tslint.json"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emilio-martinez/tslint-no-redundant-jsdoc-annotations.git"
