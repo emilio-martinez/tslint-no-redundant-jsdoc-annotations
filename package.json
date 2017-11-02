@@ -9,7 +9,8 @@
     "release": "npm run build && npm run release:prep",
     "release:dry": "standard-version --dry-run && npm run release && npm pack dist/",
     "release:prep": "cp README.md dist && cat package.json | node tools/prepare-package.js > dist/package.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "npm run build",
+    "test": "node_modules/.bin/tslint --rules-dir dist/ --test test/**/tslint.json"
   },
   "repository": {
     "type": "git",

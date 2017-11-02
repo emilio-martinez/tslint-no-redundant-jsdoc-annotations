@@ -1,0 +1,131 @@
+/**
+ * @interface MyInterface
+    ~~~~~~~~~             ['@interface' annotations are redundant in TypeScript code.]
+ */
+export interface MyInterface {}
+
+/**
+ * @export
+    ~~~~~~ ['@export' annotations are redundant in TypeScript code.]
+ * @abstract
+    ~~~~~~~~ ['@abstract' annotations are redundant in TypeScript code.]
+ * @class MyClass
+    ~~~~~         ['@class' annotations are redundant in TypeScript code.]
+ * @implements {MyInterface}
+    ~~~~~~~~~~               ['@implements' annotations are redundant in TypeScript code.]
+ */
+export abstract class MyClass implements MyInterface {
+  /**
+   * Creates an instance of MyClass.
+   * @constructor
+      ~~~~~~~~~~~ ['@constructor' annotations are redundant in TypeScript code.]
+   */
+  constructor () {}
+
+  /**
+   * @private
+      ~~~~~~~ ['@private' annotations are redundant in TypeScript code.]
+   * @access private
+      ~~~~~~         ['@access' annotations are redundant in TypeScript code.]
+   * @argument {string} param
+      ~~~~~~~~                ['@argument' annotations are redundant in TypeScript code if they provide no description.]
+      ~~~~~~~~                [Declaring a '{type}' on '@argument' annotations is redundant in TypeScript code.]
+   */
+  private a (param: string) {}
+  /**
+   * @protected
+      ~~~~~~~~~ ['@protected' annotations are redundant in TypeScript code.]
+   * @access protected
+      ~~~~~~           ['@access' annotations are redundant in TypeScript code.]
+   * @param param - A number above zero
+   */
+  protected b (param: number) {}
+
+  /**
+   * @public
+      ~~~~~~ ['@public' annotations are redundant in TypeScript code.]
+   * @access public
+      ~~~~~~        ['@access' annotations are redundant in TypeScript code.]
+   * @memberof MyClass
+      ~~~~~~~~         ['@memberof' annotations are redundant in TypeScript code.]
+   * @type {string}
+      ~~~~          ['@type' annotations are redundant in TypeScript code.]
+   */
+  c: string;
+
+  abstract d: string;
+
+  /**
+   * @static
+      ~~~~~~ ['@static' annotations are redundant in TypeScript code.]
+   * @returns {number}
+      ~~~~~~~          ['@returns' annotations are redundant in TypeScript code if they provide no description.]
+      ~~~~~~~          [Declaring a '{type}' on '@returns' annotations is redundant in TypeScript code.]
+   */
+  static e (): number {
+    return 10;
+  }
+}
+
+/**
+ * @class MyOtherClass
+    ~~~~~              ['@class' annotations are redundant in TypeScript code.]
+ * @extends {MyClass}
+    ~~~~~~~           ['@extends' annotations are redundant in TypeScript code.]
+ */
+class MyOtherClass extends MyClass {
+  d: string = 'string'
+
+  /**
+   * @readonly
+      ~~~~~~~~ ['@readonly' annotations are redundant in TypeScript code.]
+   * @type {string}
+      ~~~~          ['@type' annotations are redundant in TypeScript code.]
+   */
+  get f (): string {
+    return 'f'
+  }
+}
+
+/**
+ * @function
+    ~~~~~~~~ ['@function' annotations are redundant in TypeScript code.]
+ * @template T
+    ~~~~~~~~   ['@template' annotations are redundant in TypeScript code.]
+ * @param param
+    ~~~~~       ['@param' annotations are redundant in TypeScript code if they provide no description.]
+ * @param {string} otherParam - Very important param
+    ~~~~~                                            [Declaring a '{type}' on '@param' annotations is redundant in TypeScript code.]
+ * @returns Returns the name of the function. Why? I don't know
+ */
+function MyFunction<T> (param: T, otherParam: string): string {
+  return 'MyFunction'
+}
+
+/**
+ * @constant
+    ~~~~~~~~ ['@constant' annotations are redundant in TypeScript code.]
+ * @const This constant is black
+    ~~~~~                        ['@const' annotations are redundant in TypeScript code.]
+ * @default
+    ~~~~~~~ ['@default' annotations are redundant in TypeScript code.]
+ * @export
+    ~~~~~~ ['@export' annotations are redundant in TypeScript code.]
+ */
+export const MyConstant = true;
+
+/**
+ * @const {boolean} This constant is falsy
+    ~~~~~                                  ['@const' annotations are redundant in TypeScript code.]
+ * @export A falsy constant
+    ~~~~~~                  ['@export' annotations are redundant in TypeScript code.]
+ */
+export const MyFalsyConstant: boolean = false;
+
+/**
+ * @const
+    ~~~~~ ['@const' annotations are redundant in TypeScript code.]
+ * @export {string}
+    ~~~~~~          ['@export' annotations are redundant in TypeScript code.]
+ */
+export const MyOtherConstant = 'RED';
