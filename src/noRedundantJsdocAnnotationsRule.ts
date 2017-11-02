@@ -51,7 +51,7 @@ const JSDOC_TAGS_BLACKLIST = new Set([
  * A list of JSDoc @tags that may include a {type} declaration.
  * These will only be banned when that type is passed.
  */
-const JSDOC_TAGS_WITH_TYPES = new Set(['param', 'return', 'returns']);
+const JSDOC_TAGS_WITH_TYPES = new Set(['arg', 'argument', 'param', 'return', 'returns']);
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static metadata: Lint.IRuleMetadata = {
