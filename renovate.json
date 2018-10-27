@@ -2,8 +2,8 @@
   "extends": [
     "config:base",
     ":semanticCommitTypeAll(build)",
-    ":semanticCommitScope(package)"
+    ":semanticCommitScope(package)",
+    ":pinOnlyDevDependencies"
   ],
-  "commitMessage": "{{semanticPrefix}}update {{depName}} to version {{newVersion}}",
-  "pinVersions": false
+  "commitMessage": "{{semanticPrefix}}update {{depName}} to version {{newVersion}}"
 }
