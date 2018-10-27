@@ -1,6 +1,7 @@
 {
   "extends": [
     "config:base",
+    "schedule:weekends",
     ":semanticCommitTypeAll(build)",
     ":semanticCommitScope(package)",
     ":pinOnlyDevDependencies"
