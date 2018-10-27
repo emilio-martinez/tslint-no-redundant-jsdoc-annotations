@@ -39,12 +39,12 @@
   },
   "homepage": "https://github.com/emilio-martinez/tslint-no-redundant-jsdoc-annotations#readme",
   "devDependencies": {
-    "@types/node": "^8.0.47",
-    "rimraf": "^2.6.2",
-    "standard-version": "^4.2.0",
-    "tslint": "^5.0.0",
-    "tsutils": "^2.12.1",
-    "typescript": "^2.5.3"
+    "@types/node": "8.0.47",
+    "rimraf": "2.6.2",
+    "standard-version": "4.2.0",
+    "tslint": "5.8.0",
+    "tsutils": "2.12.1",
+    "typescript": "2.6.1"
   },
   "peerDependencies": {
     "tslint": "^5.0.0",
