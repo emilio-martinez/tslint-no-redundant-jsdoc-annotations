@@ -116,7 +116,7 @@ function walk(ctx: Lint.WalkContext<void>) {
       }
 
       /** Case where tag is redundant due to a lack of documentation */
-      if (comment === '') {
+      if (comment === void 0 || comment === '') {
         ctx.addFailureAtNode(tag.tagName, Rule.FAILURE_STRING_TAG_MISSING_DESCRIPTION(tag.tagName.text));
       }
     }
