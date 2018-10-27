@@ -43,7 +43,7 @@
     "rimraf": "2.6.2",
     "standard-version": "4.2.0",
     "tslint": "5.8.0",
-    "tsutils": "2.12.1",
+    "tsutils": "2.29.0",
     "typescript": "2.6.1"
   },
   "peerDependencies": {
