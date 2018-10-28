@@ -1,6 +1,6 @@
 {
   "name": "tslint-no-redundant-jsdoc-annotations",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tslint rule that disallows declaring JSDoc @tags that can be expressed by the TypeScript surface syntax.",
   "main": "index.js",
   "scripts-info": {
