@@ -1,5 +1,12 @@
-import * as ts from 'typescript';
-import * as Lint from 'tslint';
+import {
+  forEachChild,
+  JSDocParameterTag,
+  JSDocReturnTag,
+  JSDocTag,
+  Node as TsNode,
+  SourceFile,
+} from 'typescript';
+import { IRuleMetadata, Rules, RuleFailure, WalkContext } from 'tslint';
 import { canHaveJsDoc, getJsDoc } from 'tsutils';
 
 /**
@@ -53,8 +60,8 @@ const JSDOC_TAGS_BLACKLIST = new Set([
  */
 const JSDOC_TAGS_WITH_TYPES = new Set(['arg', 'argument', 'param', 'return', 'returns']);
 
-export class Rule extends Lint.Rules.AbstractRule {
-  public static metadata: Lint.IRuleMetadata = {
+export class Rule extends Rules.AbstractRule {
+  public static metadata: IRuleMetadata = {
     ruleName: 'no-redundant-jsdoc-annotations',
     type: 'style',
     description: 'Disallows declaring JSDoc @tags that can be expressed by the TypeScript surface syntax.',
@@ -78,15 +85,15 @@ export class Rule extends Lint.Rules.AbstractRule {
     return `'@${tagName}' annotations are redundant in TypeScript code if they provide no description.`;
   }
 
-  public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
+  public apply(sourceFile: SourceFile): RuleFailure[] {
     return this.applyWithFunction(sourceFile, walk);
   }
 }
 
-function walk(ctx: Lint.WalkContext<void>) {
+function walk(ctx: WalkContext<void>) {
   const { sourceFile } = ctx;
 
-  return sourceFile.statements.forEach(function cb(node: ts.Node): void {
+  return sourceFile.statements.forEach(function cb(node: TsNode): void {
     if (canHaveJsDoc(node)) {
       for (const { tags } of getJsDoc(node, sourceFile)) {
         if (tags !== undefined) {
@@ -96,10 +103,10 @@ function walk(ctx: Lint.WalkContext<void>) {
         }
       }
     }
-    return ts.forEachChild(node, cb);
+    return forEachChild(node, cb);
   });
 
-  function checkTag(tag: ts.JSDocTag): void {
+  function checkTag(tag: JSDocTag): void {
     /** Check against tag blacklist */
     if (JSDOC_TAGS_BLACKLIST.has(tag.tagName.text)) {
       ctx.addFailureAtNode(tag.tagName, Rule.FAILURE_STRING_REDUNDANT_TAG(tag.tagName.text));
@@ -108,7 +115,7 @@ function walk(ctx: Lint.WalkContext<void>) {
 
     /** Check against list of tags that may have a type attribute */
     if (JSDOC_TAGS_WITH_TYPES.has(tag.tagName.text)) {
-      const { typeExpression, comment } = tag as ts.JSDocReturnTag | ts.JSDocParameterTag;
+      const { typeExpression, comment } = tag as JSDocReturnTag | JSDocParameterTag;
 
       /** Case where a redundant {type} is declared */
       if (typeExpression !== undefined) {
