@@ -41,7 +41,7 @@
   "devDependencies": {
     "@types/node": "10.14.9",
     "rimraf": "2.6.3",
-    "standard-version": "6.0.1",
+    "standard-version": "8.0.1",
     "tslint": "5.18.0",
     "tsutils": "3.14.0",
     "typescript": "3.5.2"
